@@ -1,0 +1,10 @@
+#game{
+    width: 100px * 25;
+    .field{
+        width: 98px;
+        height: 98px;
+        float: left;
+        background: #2a6496;
+        border: #ac2925 1px solid;
+    }
+}
