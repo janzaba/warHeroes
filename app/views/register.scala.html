@@ -5,7 +5,9 @@ Form[Application.Login], loggedUser: User)
 	<h1 class="text-center">Rejestracja</h1>
 	<div id="big-form" class="well auth-box">
 		@if(flash.containsKey("error")) {
-		<div class="alert alert-error">@flash.get("error")</div>
+			<div class="alert alert-danger">
+				@flash.get("error")
+			</div>
 		}
 		<form method="POST" action="@routes.Application.addNewUser()">
 			<fieldset>
