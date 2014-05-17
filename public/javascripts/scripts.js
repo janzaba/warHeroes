@@ -11,7 +11,16 @@ $(document).ready(function(){
         e.stopPropagation();
     });
   //DataTables
-  $('#active-games').dataTable();
+  $('#active-games').dataTable({
+  	"ajax" : 'objects.txt',
+  	"columns" : [
+  		{ "data" : "id" },
+  		{ "data" : "name" },
+  		{ "data" : "owner" },
+  		{ "data" : "players" },
+  		{ "data" : "actions" }
+  	]
+  });  
 });
 
 
