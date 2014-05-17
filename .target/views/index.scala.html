@@ -1,7 +1,8 @@
-@(message: String)
-
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
+@(loginForm: Form[Application.Login])
+@main("War Heroes",loginForm) {
+	@if(flash.containsKey("success")) {
+		<div class="alert alert-success">
+			@flash.get("success")
+		</div>
+	}
 }

@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(loginForm: Form[Application.Login], loggedUser: User)(content: Html)
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +9,7 @@
         <meta name="author" content="">
         <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-        <title>@title</title>
+        <title>War Heroes</title>
 
         <!-- Bootstrap core CSS -->
         <link href="@routes.Assets.at("stylesheets/bootstrap.css")" rel="stylesheet">
@@ -53,19 +53,23 @@
                         <li><a href="@routes.Application.newGame()">Stwórz grę</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@routes.Application.register()">Rejestracja</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Logowanie <strong class="caret"></strong></a>
-                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                                <form method="post" action="@routes.Application.login()" accept-charset="UTF-8">
-                                    <input style="margin-bottom: 15px;" type="text" placeholder="Username" id="username" name="username">
-                                    <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
-
-                                    <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
-                                </form>
-                                <br /><br />
-                            </div>
-                        </li>
+                    	@if(loggedUser==null) {
+	                        <li><a href="@routes.Application.register()">Rejestracja</a></li>
+	                        <li class="dropdown">
+	                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Logowanie <strong class="caret"></strong></a>
+	                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+	                                <form method="POST" action="@routes.Application.login()" accept-charset="UTF-8">
+	                                    <input style="margin-bottom: 15px;" type="text" placeholder="E-mail" id="email" name="email">
+	                                    <input style="margin-bottom: 15px;" type="password" placeholder="Password" id="password" name="password">
+	
+	                                    <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+	                                </form>
+	                                <br /><br />
+	                            </div>
+	                        </li>
+                        } else {
+                        	<li><a href="@routes.Application.logout()">Wyloguj</a></li>
+                        }
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
