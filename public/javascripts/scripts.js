@@ -6,11 +6,12 @@ $(document).ready(function(){
   $('.auth-box a, button').click(function(e){
     e.preventDefault();
   });
+  //DropDown menu
   $('.dropdown-menu').find('form').click(function (e) {
         e.stopPropagation();
     });
-    
-    
+  //DataTables
+  $('#active-games').dataTable();
 });
 
 
