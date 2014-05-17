@@ -1,0 +1,47 @@
+@(registerForm: Form[Application.Register])
+@main("War Heroes") {
+<div class="container auth">
+	<h1 class="text-center">Rejestracja</h1>
+	<div id="big-form" class="well auth-box">
+		@if(flash.containsKey("error")) {
+			<div class="alert alert-error">
+				@flash.get("error")
+			</div>
+		}
+		@helper.registerForm(routes.Application.addNewUser) {
+		<fieldset>
+			<!-- Form Name -->
+			<legend>Podaj swoje dane</legend>
+
+			<!-- Text input-->
+			<div class="form-group">
+				<input id="email" name="email" placeholder="Email"
+					class="form-control input-md" type="email" required>
+			</div>
+			<div class="form-group">
+				<input id="username" name="name" placeholder="Nazwa gracza"
+					class="form-control input-md" type="text" required>
+			</div>
+
+			<!-- Password input-->
+			<div class="form-group">
+				<input id="passwordinput" name="password" placeholder="Hasło"
+					class="form-control input-md" type="password" required>
+			</div>
+			<div class="form-group">
+				<input id="repasswordinput" name="repeatedPassword"
+					placeholder="Powtórz hasło" class="form-control input-md"
+					type="password" required>
+			</div>
+			<!-- Button (Double) -->
+			<div class="form-group">
+				<input type="submit" id="submit" name="submit"
+					class="btn btn-success" value="Rejestruj" /> <input type="reset"
+					id="reset" name="reset" class="btn btn-danger" value="Resetuj" />
+			</div>
+		</fieldset>
+		}
+	</div>
+	<div class="clearfix"></div>
+</div>
+}

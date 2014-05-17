@@ -1,7 +1,13 @@
-@(message: String)
-
-@main("War Heroes") {
-
-    @message
-
+@(form: Form[Application.Login], loggedUser: User)
+@main(form, loggedUser) {
+	@if(flash.containsKey("success")) {
+		<div class="alert alert-success">
+			@flash.get("success")
+		</div>
+	}
+	@if(flash.containsKey("error")) {
+		<div class="alert alert-error">
+			@flash.get("error")
+		</div>
+	}
 }
