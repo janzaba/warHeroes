@@ -1,10 +1,61 @@
+$field-dim : 30px;
+$field-cnt : 50;
+$texture-image-size : 1042;
+$texture-one : -30px;
 #game{
-    width: 100px * 25;
+    width: ($field-dim * $field-cnt) - $field-cnt ; 
     .field{
-        width: 98px;
-        height: 98px;
+        width: $field-dim - 1;
+        height: $field-dim - 1;
         float: left;
         background: #2a6496;
-        border: #ac2925 1px solid;
+        border-right: rgba(0, 0, 0, 0.6) 1px solid;  
+        border-bottom: rgba(0, 0, 0, 0.6) 1px solid; 
     }
+    .texture{
+    	background: url('../images/terrain_sprite.png');
+    	background-size: 150px;
+    }
+    .grass1{
+    	@extend .texture;
+    }
+    .grass2{
+    	@extend .texture;
+    	background-position: ($texture-one) 0;
+    }
+    .grass3{
+    	@extend .texture;
+    	background-position: ($texture-one * 2) 0;
+    }
+    .grass4{
+    	@extend .texture;
+    	background-position: ($texture-one * 3) 0;
+    }
+    .grass5{
+    	@extend .texture;
+    	background-position: ($texture-one * 4) 0;
+    }
+    .rock1{
+    	@extend .texture;
+    }
+    .rock2{
+    	@extend .texture;
+    	background-position: ($texture-one) -30px;
+    }
+    .rock3{
+    	@extend .texture;
+    	background-position: ($texture-one * 2) -30px;
+    }
+    .rock4{
+    	@extend .texture;
+    	background-position: ($texture-one * 3) -30px;
+    }
+    .rock5{
+    	@extend .texture;
+    	background-position: ($texture-one * 4) -30px;
+    }
+    
+}
+.debug-mode{
+	display: none;
 }

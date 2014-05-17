@@ -238,10 +238,33 @@ a:hover {
   margin: 0 !important; }
 
 #game {
-  width: 2500px; }
+  width: 1450px; }
   #game .field {
-    width: 98px;
-    height: 98px;
+    width: 29px;
+    height: 29px;
     float: left;
     background: #2a6496;
-    border: #ac2925 1px solid; }
+    border-right: rgba(0, 0, 0, 0.6) 1px solid;
+    border-bottom: rgba(0, 0, 0, 0.6) 1px solid; }
+  #game .texture, #game .grass1, #game .grass2, #game .grass3, #game .grass4, #game .grass5, #game .rock1, #game .rock2, #game .rock3, #game .rock4, #game .rock5 {
+    background: url("../images/terrain_sprite.png");
+    background-size: 150px; }
+  #game .grass2 {
+    background-position: -30px 0; }
+  #game .grass3 {
+    background-position: -60px 0; }
+  #game .grass4 {
+    background-position: -90px 0; }
+  #game .grass5 {
+    background-position: -120px 0; }
+  #game .rock2 {
+    background-position: -30px -30px; }
+  #game .rock3 {
+    background-position: -60px -30px; }
+  #game .rock4 {
+    background-position: -90px -30px; }
+  #game .rock5 {
+    background-position: -120px -30px; }
+
+.debug-mode {
+  display: none; }

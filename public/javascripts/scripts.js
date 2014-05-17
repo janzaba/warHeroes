@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
   //Floatlabel
-  $('input').floatlabel();
+  $('.auth-box input').floatlabel();
   $('.auth-box a, button').click(function(e){
     e.preventDefault();
   });
