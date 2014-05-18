@@ -11,13 +11,13 @@ import play.mvc.*;
 import play.data.*;
 import play.mvc.Controller;
 import play.mvc.Result;
-import views.html.ajaxGamesList;
 import views.html.index;
 import views.html.register;
 import views.html.game;
 
 public class Application extends Controller {
 
+	@Security.Authenticated(Secured.class)
 	@BodyParser.Of(BodyParser.Json.class)
 	public static Result ajaxGamesList() {
 		ObjectNode result = Json.newObject();
@@ -26,7 +26,8 @@ public class Application extends Controller {
 		result.put("owner", "Kozak");
 		result.put("players", "1./8");
 		result.put("actions", "");
-		return ok(ajaxGamesList.render());
+		response().setHeader("content-type", "application/json");
+		return ok(result);
 	}
 
 	public static Result index() {
