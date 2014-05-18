@@ -122,7 +122,7 @@ public class Application extends Controller {
 					"actions" : ""
 				}
 			]
-		}")
+		}");
 		response().setHeader("content-type", "application/json");
 		return ok(result);
 	}
