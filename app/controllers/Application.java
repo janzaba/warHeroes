@@ -22,107 +22,107 @@ public class Application extends Controller {
 	public static Result ajaxGamesList() {
 		ObjectNode result = Json.newObject();
 		result = Json.parse("{
-			"data": [
-				{
-					"id" : "1",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "1/8",
-					"actions" : ""
-				},
-				{
-					"id" : "2",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "8/8",
-					"actions" : ""
-				},
-				{
-					"id" : "3",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "2/8",
-					"actions" : ""
-				},
-				{
-					"id" : "4",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "0/8",
-					"actions" : ""
-				},
-				{
-					"id" : "5",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "0/8",
-					"actions" : ""
-				},
-				{
-					"id" : "6",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "7",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "8",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "9",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "10",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "11",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "12",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "13",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "4/8",
-					"actions" : ""
-				},
-				{
-					"id" : "14",
-					"name" : "Game name",
-					"owner" : "Kozak",
-					"players" : "6/8",
-					"actions" : ""
-				}
-			]
-		}");
+	"data": [
+		{
+			"id" : "1",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "1/8",
+			"actions" : ""
+		},
+		{
+			"id" : "2",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "8/8",
+			"actions" : ""
+		},
+		{
+			"id" : "3",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "2/8",
+			"actions" : ""
+		},
+		{
+			"id" : "4",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "0/8",
+			"actions" : ""
+		},
+		{
+			"id" : "5",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "0/8",
+			"actions" : ""
+		},
+		{
+			"id" : "6",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "7",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "8",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "9",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "10",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "11",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "12",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "13",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "4/8",
+			"actions" : ""
+		},
+		{
+			"id" : "14",
+			"name" : "Game name",
+			"owner" : "Kozak",
+			"players" : "6/8",
+			"actions" : ""
+		}
+	]
+}");
 		response().setHeader("content-type", "application/json");
 		return ok(result);
 	}
