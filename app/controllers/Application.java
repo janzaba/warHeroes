@@ -21,7 +21,7 @@ public class Application extends Controller {
 	@BodyParser.Of(BodyParser.Json.class)
 	public static Result ajaxGamesList() {
 		ObjectNode result = Json.newObject();
-		String jsonS = new String("{
+		String jsonS = "{
 	"data": [
 		{
 			"id" : "1",
@@ -122,7 +122,7 @@ public class Application extends Controller {
 			"actions" : ""
 		}
 	]
-}");
+}";
 		result = Json.parse(jsonS);
 		response().setHeader("content-type", "application/json");
 		return ok(result);
