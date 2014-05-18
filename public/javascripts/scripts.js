@@ -12,7 +12,7 @@ $(document).ready(function(){
     });
   //DataTables
   $('#active-games').dataTable({
-  	"ajax" : 'objects.txt',
+  	"ajax" : '@routes.Application.ajaxGameList()',
   	"columns" : [
   		{ "data" : "id" },
   		{ "data" : "name" },

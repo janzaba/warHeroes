@@ -1,17 +1,33 @@
 package controllers;
 
 import models.User;
+import play.libs.Json;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import play.*;
 import play.mvc.*;
 import play.data.*;
-import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.ajaxGamesList;
 import views.html.index;
 import views.html.register;
 import views.html.game;
 
 public class Application extends Controller {
+
+	@BodyParser.Of(BodyParser.Json.class)
+	public static Result ajaxGamesList() {
+		ObjectNode result = Json.newObject();
+		result.put("id", "1");
+		result.put("name", "Game name");
+		result.put("owner", "Kozak");
+		result.put("players", "1./8");
+		result.put("actions", "");
+		return ok(ajaxGamesList.render());
+	}
 
 	public static Result index() {
 		String username = session().get("email");
@@ -20,11 +36,11 @@ public class Application extends Controller {
 			loggedUser = User.find.byId(username);
 		return ok(index.render(Form.form(Login.class), loggedUser));
 	}
-	
+
 	@Security.Authenticated(Secured.class)
 	public static Result logout() {
 		session().clear();
-		flash("success","Wylogowano pomyślnie.");
+		flash("success", "Wylogowano pomyślnie.");
 		return redirect(routes.Application.index());
 	}
 
