@@ -20,7 +20,7 @@ public class Application extends Controller {
 	@Security.Authenticated(Secured.class)
 	@BodyParser.Of(BodyParser.Json.class)
 	public static Result ajaxGamesList() {
-		ObjectNode result = Json.newObject();
+		JsonNode result = Json.newObject();
 		String jsonS = "{\"data\": [{\"id\" : \"1\",\"name\" : \"Game name\",\"owner\" : \"Kozak\",\"players\" : \"1/8\",\"actions\" : \"\"},{\"id\" : \"2\",\"name\" : \"Game name\",\"owner\" : \"Kozak\",\"players\" : \"8/8\",\"actions\" : \"\"}]}";
 		result = Json.parse(jsonS);
 		response().setHeader("content-type", "application/json");
