@@ -17,6 +17,7 @@ public class Game extends Model {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long id;
+	public String name;
 	public Date startTime;
 	public Date endTime;
 	@ManyToOne
@@ -31,6 +32,15 @@ public class Game extends Model {
 	public Game(User owner) {
 		this.owner = owner;
 		startTime = new Date();
+	}
+	
+	public int getNumberOfPlayers() {
+		return gamePlayers.size();
+	}
+	
+	public String toJson() {
+		//{\"id\" : \"1\", \"name\" : \"Game name\", \"owner\" : \"Kozak\", \"players\" : \"1/8\", \"actions\" : \"\"}
+		return "{\"id\" : \""+id.toString()+"\", \"name\" : \""+name+"\", \"owner\" : \""+owner.name+"\", \"players\" : \""+this.getNumberOfPlayers()+"/8\", \"actions\" : \"\"}";
 	}
 
 	public static Finder<Long, Game> find = new Finder<Long, Game>(Long.class,

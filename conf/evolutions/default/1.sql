@@ -5,6 +5,7 @@
 
 create table game (
   id                        bigint not null,
+  name                      varchar(255),
   start_time                timestamp,
   end_time                  timestamp,
   owner_email               varchar(255),
