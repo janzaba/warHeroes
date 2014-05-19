@@ -1,0 +1,74 @@
+
+# Users
+
+- &a !!models.User
+    email:      a@a.a
+    name:       a
+    password:   a
+
+- &b !!models.User
+    email:      b@b.b
+    name:       b
+    password:   b
+
+- &c !!models.User
+    email:      c@c.c
+    name:       c
+    password:   c
+    
+# Games
+
+- &1 !!models.Game
+    id:         1
+    name:       First game
+    startTime:  2014-05-19 09:00:00
+    endTime:    
+    owner:      *a@a.a
+    winner:     
+
+- &2 !!models.Game
+    id:         2
+    name:       Second game
+    startTime:  2014-05-19 09:20:00
+    endTime:    
+    owner:      *b@b.b
+    winner:     
+
+- &3 !!models.Game
+    id:         3
+    name:       Third game
+    startTime:  2014-05-19 09:40:00
+    endTime:    
+    owner:      *c@c.c
+    winner:     
+
+# GamePlayers
+
+- !!models.GamePlayers
+    game:       *1
+    user:       *a
+
+- !!models.GamePlayers
+    game:       *1
+    user:       *b
+
+- !!models.GamePlayers
+    game:       *1
+    user:       *c
+    
+- !!models.GamePlayers
+    game:       *2
+    user:       *b
+
+- !!models.GamePlayers
+    game:       *2
+    user:       *a
+
+- !!models.GamePlayers
+    game:       *3
+    user:       *c
+
+- !!models.GamePlayers
+    game:       *3
+    user:       *a
+
