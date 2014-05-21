@@ -113,6 +113,9 @@ a:hover{
 html,body{height:100%;}
 .carousel,.item,.active{height:100%;}
 .carousel-inner{height:100%;}
+.carousel-inner > .item > img{
+    min-width: 100%;
+}
 
 .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
 
