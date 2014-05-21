@@ -114,6 +114,7 @@ html,body{height:100%;}
 .carousel,.item,.active{height:100%;}
 .carousel-inner{height:100%;}
 
+<<<<<<< HEAD
 .panel-body .btn:not(.btn-block) { width:120px;margin-bottom:10px; }
 
 .widget .panel-body { padding:0px; }
@@ -142,3 +143,10 @@ html,body{height:100%;}
 .ui-group-buttons .btn{float:left;border-radius:0}
 .ui-group-buttons .btn:first-child{margin-left:0;border-top-left-radius:.25em;border-bottom-left-radius:.25em;padding-right:30px}
 .ui-group-buttons .btn:last-child{border-top-right-radius:.25em;border-bottom-right-radius:.25em;padding-left:30px}
+=======
+.alert{
+  position: fixed; 
+  width: 100%;
+  top: 50px;
+}
+>>>>>>> c7709f15af5eb0a85b3dc250e2b99c259034d3a9
