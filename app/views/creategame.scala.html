@@ -1,7 +1,10 @@
+@(form: Form[Application.Login], loggedUser: User)
+@main(form, loggedUser) {
+    @if(loggedUser!=null) {
             <h1 class="text-center">Dołącz do gry</h1>
             <div class="row">
                 <div class="col-md-3 text-center">
-                    <img src="@routes.Assets.at("images/flag/nazi.png")" alt="nazi_flag" class="img-rounded" style="width: 160px; margin-top: 70px;" />
+                    <img src="@routes.Assets.at("images/flags/nazi.png")" alt="nazi_flag" class="img-rounded" style="width: 160px; margin-top: 70px;" />
                 </div>
                 <div class="col-md-6 text-center">
                     <div class="ui-group-buttons">
@@ -11,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 text-center" >
-                    <img src="@routes.Assets.at("images/flag/usa.png")" alt="usa_flag" class="img-rounded" style="width: 160px;margin-top: 70px;" />
+                    <img src="@routes.Assets.at("images/flags/usa.png")" alt="usa_flag" class="img-rounded" style="width: 160px;margin-top: 70px;" />
                 </div>
             </div>
             
@@ -27,7 +30,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class=" col-md-3">
-                                            <img src="@routes.Assets.at("images/flag/nazi.png")" alt="nazi_flag" class="img-thumbnail" />
+                                            <img src="@routes.Assets.at("images/flags/nazi.png")" alt="nazi_flag" class="img-thumbnail" />
                                         </div>
                                         <div class="col-md-6">
                                             <h3>Germany</h3>
@@ -45,7 +48,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class=" col-md-3">
-                                            <img src="@routes.Assets.at("images/flag/italy.png")" alt="italy_flag" class="img-thumbnail" />
+                                            <img src="@routes.Assets.at("images/flags/italy.png")" alt="italy_flag" class="img-thumbnail" />
                                         </div>
                                         <div class="col-md-6">
                                             <h3>Italy</h3>
@@ -63,7 +66,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class=" col-md-3">
-                                            <img src="@routes.Assets.at("images/flag/japan.png")" alt="japan_flag" class="img-thumbnail" />
+                                            <img src="@routes.Assets.at("images/flags/japan.png")" alt="japan_flag" class="img-thumbnail" />
                                         </div>
                                         <div class="col-md-6">
                                             <h3>Japan</h3>
@@ -93,7 +96,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class=" col-md-3">
-                                            <img src="@routes.Assets.at("images/flag/usa.png")" alt="usa_flag" class="img-thumbnail" />
+                                            <img src="@routes.Assets.at("images/flags/usa.png")" alt="usa_flag" class="img-thumbnail" />
                                         </div>
                                         <div class="col-md-6">
                                             <h3>USA</h3>
@@ -111,7 +114,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class=" col-md-3">
-                                            <img src="@routes.Assets.at("images/flag/poland.png")" alt="poland_flag" class="img-thumbnail" />
+                                            <img src="@routes.Assets.at("images/flags/poland.png")" alt="poland_flag" class="img-thumbnail" />
                                         </div>
                                         <div class="col-md-6">
                                             <h3>Poland</h3>
@@ -129,7 +132,7 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class=" col-md-3">
-                                            <img src="@routes.Assets.at("images/flag/uk.png")" alt="uk_flag" class="img-thumbnail" />
+                                            <img src="@routes.Assets.at("images/flags/uk.png")" alt="uk_flag" class="img-thumbnail" />
                                         </div>
                                         <div class="col-md-6">
                                             <h3>UK</h3>
@@ -154,3 +157,5 @@
                     <a href="" class="btn btn-success btn-lg btn-block" role="button">Rozpocznij</a>
                 </div>
             </div>
+    }
+}

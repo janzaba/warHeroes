@@ -14,6 +14,7 @@ import play.mvc.Result;
 import views.html.index;
 import views.html.register;
 import views.html.game;
+import views.html.creategame;
 
 public class Application extends Controller {
 
@@ -48,7 +49,7 @@ public class Application extends Controller {
 		User loggedUser = null;
 		if (username != null)
 			loggedUser = User.find.byId(username);
-		return TODO;
+		return ok(creategame.render(Form.form(Login.class), loggedUser));
 	}
 
 	public static Result register() {
