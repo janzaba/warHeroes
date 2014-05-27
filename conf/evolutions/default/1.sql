@@ -14,8 +14,12 @@ create table game (
 ;
 
 create table game_players (
+  id                        bigint not null,
   game_id                   bigint,
-  user_email                varchar(255))
+  user_email                varchar(255),
+  country                   integer,
+  constraint ck_game_players_country check (country in (0,1,2,3,4,5)),
+  constraint pk_game_players primary key (id))
 ;
 
 create table shoutbox_message (
@@ -37,6 +41,8 @@ create table user (
 ;
 
 create sequence game_seq;
+
+create sequence game_players_seq;
 
 create sequence shoutbox_message_seq;
 
@@ -72,6 +78,8 @@ drop table if exists user;
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists game_seq;
+
+drop sequence if exists game_players_seq;
 
 drop sequence if exists shoutbox_message_seq;
 

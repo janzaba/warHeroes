@@ -14,7 +14,6 @@ import play.mvc.Result;
 import views.html.index;
 import views.html.register;
 import views.html.game;
-import views.html.creategame;
 
 public class Application extends Controller {
 
@@ -41,15 +40,6 @@ public class Application extends Controller {
 		if (username != null)
 			loggedUser = User.find.byId(username);
 		return ok(index.render(Form.form(Login.class), loggedUser));
-	}
-
-	@Security.Authenticated(Secured.class)
-	public static Result newGame() {
-		String username = request().username();
-		User loggedUser = null;
-		if (username != null)
-			loggedUser = User.find.byId(username);
-		return ok(creategame.render(Form.form(Login.class), loggedUser));
 	}
 
 	public static Result register() {

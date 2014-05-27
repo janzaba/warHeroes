@@ -1,5 +1,5 @@
 package models;
 
 public enum TEAM {
-	NAZIS, ALIANTS;
+	AXIS, ALLIES;
 }

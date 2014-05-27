@@ -4,13 +4,16 @@
 
 # Home page
 GET     /                           controllers.Application.index()
-GET     /newgame                    controllers.Application.newGame()
 GET     /register                   controllers.Application.register()
 POST    /login                      controllers.Application.login()
 POST    /newuser                    controllers.Application.addNewUser()
 GET     /logged                     controllers.Application.logged()
 GET     /logout                     controllers.Application.logout()
 GET     /ajaxGamesList              controllers.GamesManager.ajaxGamesList()
+GET     /createGame                 controllers.GamesManager.createGame()
+GET     /getGame/:id                controllers.GamesManager.getGame(id: Long)
+GET     /ajaxPlayersList/:id        controllers.GamesManager.ajaxPlayersList(id: Long)
+GET     /ajaxAddPlayer/:id          controllers.GamesManager.ajaxAddPlayer(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

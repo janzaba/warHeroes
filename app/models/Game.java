@@ -32,15 +32,32 @@ public class Game extends Model {
 	public Game(User owner) {
 		this.owner = owner;
 		startTime = new Date();
+		endTime = null;
+		name = "";
+		winner = null;
 	}
-	
+
 	public int getNumberOfPlayers() {
 		return gamePlayers.size();
 	}
-	
+
 	public String toJson() {
-		//{\"id\" : \"1\", \"name\" : \"Game name\", \"owner\" : \"Kozak\", \"players\" : \"1/8\", \"actions\" : \"\"}
-		return "{\"id\" : \""+id.toString()+"\", \"name\" : \""+name+"\", \"owner\" : \""+owner.name+"\", \"players\" : \""+this.getNumberOfPlayers()+"/8\", \"actions\" : \"\"}";
+		// {\"id\" : \"1\", \"name\" : \"Game name\", \"owner\" : \"Kozak\",
+		// \"players\" : \"1/8\", \"actions\" : \"\"}
+		return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
+				+ "\", \"owner\" : \"" + owner.name + "\", \"players\" : \""
+				+ this.getNumberOfPlayers() + "/8\", \"actions\" : \"\"}";
+	}
+
+	public String playersInJsonForm() {
+		String result = "{\"data\": [";
+		for (GamePlayers player : gamePlayers) {
+			result += player.toJson();
+			if (gamePlayers.indexOf(player) != gamePlayers.size() - 1)
+				result += ", ";
+		}
+		result += "] }";
+		return result;
 	}
 
 	public static Finder<Long, Game> find = new Finder<Long, Game>(Long.class,
