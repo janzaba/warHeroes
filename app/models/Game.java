@@ -48,14 +48,12 @@ public class Game extends Model {
 			return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
 					+ "\", \"owner\" : \"" + owner.name
 					+ "\", \"players\" : \"" + this.getNumberOfPlayers()
-					+ "/8\", \"actions\" : \"<button "
-					+ "type=\"button\" class=\"btn btn-primary game-button\" "
-					+ "id=\"" + this.id + "\">Dołącz</button>\"}";
+					+ "/8\", \"actions\" : \"OK\"}";
 		else {
 			return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
 					+ "\", \"owner\" : \"" + owner.name
 					+ "\", \"players\" : \"" + this.getNumberOfPlayers()
-					+ "/8\", \"actions\" : \"\"}";
+					+ "/8\", \"actions\" : \"KO\"}";
 		}
 	}
 
