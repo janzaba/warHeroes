@@ -50,13 +50,13 @@ public class Game extends Model {
 	}
 
 	public String playersInJsonForm() {
-		String result = "{\"data\": [";
+		String result = "[";
 		for (GamePlayers player : gamePlayers) {
 			result += player.toJson();
 			if (gamePlayers.indexOf(player) != gamePlayers.size() - 1)
 				result += ", ";
 		}
-		result += "] }";
+		result += "]";
 		return result;
 	}
 

@@ -25,7 +25,7 @@ public class GamePlayers extends Model {
 	}
 
 	public String toJson() {
-		return "{\"email\" : \"" + user.email + "\", \"country\" : \""
+		return "{\"email\" : \"" + user.name + "\", \"country\" : \""
 				+ country + "\"}";
 	}
 }

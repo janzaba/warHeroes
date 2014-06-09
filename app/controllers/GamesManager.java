@@ -67,32 +67,32 @@ public class GamesManager extends Controller {
 	public static Result ajaxPlayersList(Long id) {
 		Game game = Game.find.byId(id);
 		JsonNode jsonResult = Json.newObject();
-		System.out.println(game.playersInJsonForm());
+		//System.out.println(game.playersInJsonForm());
 		jsonResult = Json.parse(game.playersInJsonForm());
-		response().setHeader("content-type", "application/json");
+		//response().setHeader("content-type", "application/json");
 		return ok(jsonResult);
 	}
 
 	@BodyParser.Of(BodyParser.Json.class)
-	public static Result ajaxAddPlayer(Long id) {
-		JsonNode json = request().body().asJson();
+	public static Result ajaxAddPlayer(Long id, String country) {
 		String username = request().username();
 		User user = null;
 		user = User.find.byId(username);
 		Game game = Game.find.byId(id);
-		String stringCountry = json.findPath("country").textValue();
-		COUNTRY country = COUNTRY.valueOf(stringCountry);
+		COUNTRY countryConverted = COUNTRY.valueOf(country);
 		JsonNode jsonResult = Json.newObject();
 		for (GamePlayers player : game.gamePlayers) {
-			if (player.country == country) {
-				jsonResult = Json.parse("{\"KO\" : \"KO\"}");
+			if (player.country == countryConverted) {
+				jsonResult = Json.parse("{\"OK\" : \"KO\"}");
+				response().setHeader("content-type", "application/json");
 				return ok(jsonResult);
 			}
 		}
 		GamePlayers player = new GamePlayers(game, user);
-		player.country = country;
+		player.country = countryConverted;
 		player.save();
 		jsonResult = Json.parse("{\"OK\" : \"OK\"}");
+		response().setHeader("content-type", "application/json");
 		return ok(jsonResult);
 	}
 
