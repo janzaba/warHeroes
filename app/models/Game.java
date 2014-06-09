@@ -31,7 +31,7 @@ public class Game extends Model {
 
 	public Game(User owner) {
 		this.owner = owner;
-		startTime = new Date();
+		startTime = null;
 		endTime = null;
 		name = "";
 		winner = null;
@@ -44,9 +44,19 @@ public class Game extends Model {
 	public String toJson() {
 		// {\"id\" : \"1\", \"name\" : \"Game name\", \"owner\" : \"Kozak\",
 		// \"players\" : \"1/8\", \"actions\" : \"\"}
-		return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
-				+ "\", \"owner\" : \"" + owner.name + "\", \"players\" : \""
-				+ this.getNumberOfPlayers() + "/8\", \"actions\" : \"\"}";
+		if (startTime == null)
+			return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
+					+ "\", \"owner\" : \"" + owner.name
+					+ "\", \"players\" : \"" + this.getNumberOfPlayers()
+					+ "/8\", \"actions\" : \"<button "
+					+ "type=\"button\" class=\"btn btn-primary game-button\" "
+					+ "id=\"" + this.id + "\">Dołącz</button>\"}";
+		else {
+			return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
+					+ "\", \"owner\" : \"" + owner.name
+					+ "\", \"players\" : \"" + this.getNumberOfPlayers()
+					+ "/8\", \"actions\" : \"\"}";
+		}
 	}
 
 	public String playersInJsonForm() {
