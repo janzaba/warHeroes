@@ -55,7 +55,7 @@ public class GamesManager extends Controller {
 		String username = request().username();
 		User loggedUser = null;
 		loggedUser = User.find.byId(username);
-		if (Game.find.where().eq("id", id.toString()).findUnique() != null)
+		if (Game.find.where().eq("id", id.toString()).eq("startTime", null).findUnique() != null)
 			return ok(creategame.render(Form.form(Login.class), loggedUser, id));
 		else {
 			flash("error", "Gra o podanym id nie istnieje");
