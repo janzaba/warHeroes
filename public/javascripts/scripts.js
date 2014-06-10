@@ -19,7 +19,7 @@ $(document).ready(function(){
         e.stopPropagation();
     });
   //DataTables
-  $('#active-games').dataTable({
+$('#active-games').dataTable({
   	"ajax" : '/ajaxGamesList',
   	"columns" : [
   		{ "data" : "id" },
@@ -27,8 +27,13 @@ $(document).ready(function(){
   		{ "data" : "owner" },
   		{ "data" : "players" },
   		{ "data" : "actions" }
-  	]
-  });  
+  	],
+  	"fnDrawCallback" : function() {
+    	setGameButtonAction();
+	}
+  }); 
+
+ 
 
 
 
@@ -190,4 +195,10 @@ function unbindChoose(){
     $("#btn-os").addClass("disabled");
     $("#btn-os").unbind();
     
+}
+function setGameButtonAction(){
+	$(".game-button").click(function(){
+	  	var id = $(this).attr("id");
+	  	window.location.href = "/getGame/"+id;
+  	});
 }

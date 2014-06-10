@@ -11,12 +11,13 @@ $(document).ready(function(){
 				var co = $(this).closest(".row").children(".col-md-6").children("p").attr("class");
 				addPlayer(co);
 		});
-		setInterval(refresch(), 1000);
+		setInterval(function(){refresch();}, 1000);
 	}
 });
 
 
 function refresch(){
+	console.log("refreshing");
 	$.ajax({
 		type: "GET",
 		url: "/ajaxPlayersList/"+gameId
