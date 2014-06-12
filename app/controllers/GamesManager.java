@@ -53,11 +53,10 @@ public class GamesManager extends Controller {
 	}
 
 	@BodyParser.Of(BodyParser.Json.class)
-	public static Result game() {
+	public static Result game(Long id) {
 		String username = request().username();
 		User loggedUser = null;
 		loggedUser = User.find.byId(username);
-		Long id = Long.parseLong(session().get("newGameId"));
 		Game thisGame = Game.find.byId(id);
 		if (thisGame != null)
 			thisGame.startTime = new Date();
