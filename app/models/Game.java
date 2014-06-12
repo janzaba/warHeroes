@@ -33,7 +33,7 @@ public class Game extends Model {
 		this.owner = owner;
 		startTime = null;
 		endTime = null;
-		name = "";
+		name = "Gra " + id.toString();
 		winner = null;
 	}
 
@@ -45,10 +45,16 @@ public class Game extends Model {
 		// {\"id\" : \"1\", \"name\" : \"Game name\", \"owner\" : \"Kozak\",
 		// \"players\" : \"1/8\", \"actions\" : \"\"}
 		if (startTime == null)
-			return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
-					+ "\", \"owner\" : \"" + owner.name
-					+ "\", \"players\" : \"" + this.getNumberOfPlayers()
-					+ "/8\", \"actions\" : \"<button type=\'button\' class=\'btn btn-primary game-button\' id=\'"+ id.toString() +"\'>Dołącz</button>\"}";
+			return "{\"id\" : \""
+					+ id.toString()
+					+ "\", \"name\" : \""
+					+ name
+					+ "\", \"owner\" : \""
+					+ owner.name
+					+ "\", \"players\" : \""
+					+ this.getNumberOfPlayers()
+					+ "/8\", \"actions\" : \"<button type=\'button\' class=\'btn btn-primary game-button\' id=\'"
+					+ id.toString() + "\'>Dołącz</button>\"}";
 		else {
 			return "{\"id\" : \"" + id.toString() + "\", \"name\" : \"" + name
 					+ "\", \"owner\" : \"" + owner.name

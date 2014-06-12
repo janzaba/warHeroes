@@ -1,5 +1,6 @@
 package controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import models.COUNTRY;
@@ -56,16 +57,19 @@ public class GamesManager extends Controller {
 		String username = request().username();
 		User loggedUser = null;
 		loggedUser = User.find.byId(username);
+		Long id = Long.parseLong(session().get("newGameId"));
+		Game thisGame = Game.find.byId(id);
+		thisGame.startTime = new Date();
 		return ok(game.render(Form.form(Login.class), loggedUser));
 	}
-
 
 	@BodyParser.Of(BodyParser.Json.class)
 	public static Result getGame(Long id) {
 		String username = request().username();
 		User loggedUser = null;
 		loggedUser = User.find.byId(username);
-		if (Game.find.where().eq("id", id.toString()).eq("startTime", null).findUnique() != null)
+		if (Game.find.where().eq("id", id.toString()).eq("startTime", null)
+				.findUnique() != null)
 			return ok(creategame.render(Form.form(Login.class), loggedUser, id));
 		else {
 			flash("error", "Gra o podanym id nie istnieje");
@@ -77,9 +81,9 @@ public class GamesManager extends Controller {
 	public static Result ajaxPlayersList(Long id) {
 		Game game = Game.find.byId(id);
 		JsonNode jsonResult = Json.newObject();
-		//System.out.println(game.playersInJsonForm());
+		// System.out.println(game.playersInJsonForm());
 		jsonResult = Json.parse(game.playersInJsonForm());
-		//response().setHeader("content-type", "application/json");
+		// response().setHeader("content-type", "application/json");
 		return ok(jsonResult);
 	}
 
