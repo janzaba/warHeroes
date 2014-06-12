@@ -59,7 +59,8 @@ public class GamesManager extends Controller {
 		loggedUser = User.find.byId(username);
 		Long id = Long.parseLong(session().get("newGameId"));
 		Game thisGame = Game.find.byId(id);
-		thisGame.startTime = new Date();
+		if (thisGame != null)
+			thisGame.startTime = new Date();
 		return ok(game.render(Form.form(Login.class), loggedUser));
 	}
 
