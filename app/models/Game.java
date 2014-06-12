@@ -33,7 +33,7 @@ public class Game extends Model {
 		this.owner = owner;
 		startTime = null;
 		endTime = null;
-		name = "Gra " + id.toString();
+		name = "Gra testowa";
 		winner = null;
 	}
 
