@@ -1,3 +1,7 @@
+@(form: Form[Application.Login], loggedUser: User)
+@main(form, loggedUser) {
+    @if(loggedUser!=null) {
+
 <div style="position: fixed; background: white;" id="debug-info" class="debug-mode"></div>
 <div id="game"></div>
 
@@ -16,3 +20,6 @@
 </div>
 
 <script src="@routes.Assets.at("javascripts/game.js")"></script>
+
+	}
+}

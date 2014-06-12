@@ -2,60 +2,117 @@ $field-dim : 30px;
 $field-cnt : 50;
 $texture-image-size : 1042;
 $texture-one : -30px;
+
 #game{
     width: ($field-dim * $field-cnt) - $field-cnt ; 
+    position: absolute;
+    top: 50px;
+    left: 0px;
     .field{
         width: $field-dim - 1;
         height: $field-dim - 1;
         float: left;
         background: #2a6496;
-        border-right: rgba(0, 0, 0, 0.6) 1px solid;  
+        border-right: rgba(0, 0, 0, 0.6) 1px solid; 
         border-bottom: rgba(0, 0, 0, 0.6) 1px solid; 
+        .player{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            margin: -3px 0px 0px -11px;
+            z-index: 999;
+        }
+        .pl{
+            background: url('../images/flags/flags_small/pl.png');
+            background-size: 50px;
+        }
+        .usa{
+            background: url('../images/flags/flags_small/usa.png');
+            background-size: 50px;
+        }
+        .uk{
+            background: url('../images/flags/flags_small/uk.png');
+            background-size: 50px;
+        }
+        .ger{
+            background: url('../images/flags/flags_small/ger.png');
+            background-size: 50px;
+        }
+        .jap{
+            background: url('../images/flags/flags_small/jap.png');
+            background-size: 50px;
+        }
+        .it{
+            background: url('../images/flags/flags_small/it.png');
+            background-size: 50px;
+        }
+
     }
     .texture{
-    	background: url('../images/terrain_sprite.png');
-    	background-size: 150px;
+        background: url('../images/terrain_sprite.png');
+        background-size: 150px;
     }
     .grass1{
-    	@extend .texture;
+        @extend .texture;
     }
     .grass2{
-    	@extend .texture;
-    	background-position: ($texture-one) 0;
+        @extend .texture;
+        background-position: ($texture-one) 0;
     }
     .grass3{
-    	@extend .texture;
-    	background-position: ($texture-one * 2) 0;
+        @extend .texture;
+        background-position: ($texture-one * 2) 0;
     }
     .grass4{
-    	@extend .texture;
-    	background-position: ($texture-one * 3) 0;
+        @extend .texture;
+        background-position: ($texture-one * 3) 0;
     }
     .grass5{
-    	@extend .texture;
-    	background-position: ($texture-one * 4) 0;
+        @extend .texture;
+        background-position: ($texture-one * 4) 0;
     }
     .rock1{
-    	@extend .texture;
+        @extend .texture;
     }
     .rock2{
-    	@extend .texture;
-    	background-position: ($texture-one) -30px;
+        @extend .texture;
+        background-position: ($texture-one) -30px;
     }
     .rock3{
-    	@extend .texture;
-    	background-position: ($texture-one * 2) -30px;
+        @extend .texture;
+        background-position: ($texture-one * 2) -30px;
     }
     .rock4{
-    	@extend .texture;
-    	background-position: ($texture-one * 3) -30px;
+        @extend .texture;
+        background-position: ($texture-one * 3) -30px;
     }
     .rock5{
-    	@extend .texture;
-    	background-position: ($texture-one * 4) -30px;
+        @extend .texture;
+        background-position: ($texture-one * 4) -30px;
     }
+    .rock6{
+        @extend .texture;
+        background-position: 0 -60px;
+    }
+    .rock7{
+        @extend .texture;
+        background-position: ($texture-one) -60px;
+    }
+    .rock8{
+        @extend .texture;
+        background-position: ($texture-one * 2) -60px;
+    }
+    .rock9{
+        @extend .texture;
+        background-position: ($texture-one * 3) -60px;
+    }
+    .rock10{
+        @extend .texture;
+        background-position: ($texture-one * 4) -60px;
+    }
+
     
 }
 .debug-mode{
-	display: none;
+    display: none;
 }

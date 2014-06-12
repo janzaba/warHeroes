@@ -14,6 +14,7 @@ import play.mvc.Result;
 import play.mvc.Security;
 import views.html.creategame;
 import views.html.index;
+import views.html.game;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -49,6 +50,15 @@ public class GamesManager extends Controller {
 		return ok(creategame.render(Form.form(Login.class), loggedUser,
 				newGame.id));
 	}
+
+	@BodyParser.Of(BodyParser.Json.class)
+	public static Result game() {
+		String username = request().username();
+		User loggedUser = null;
+		loggedUser = User.find.byId(username);
+		return ok(game.render(Form.form(Login.class), loggedUser));
+	}
+
 
 	@BodyParser.Of(BodyParser.Json.class)
 	public static Result getGame(Long id) {
