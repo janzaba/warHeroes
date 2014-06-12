@@ -6,7 +6,7 @@ function Field (x, y, t){
     this.cords = {
         x : x,
         y : y
-    }
+    };
     this.terrainType = t;
     this.getTerrain = function () {
         return this.terrainType;
@@ -30,6 +30,19 @@ function Terrain (){
         return this.fields[index];
     };
 }
+function Player (f, nation){
+    this.fieldId = f;
+    this.nation = nation;
+    this.getNation = function () {
+        return this.nation;
+    };
+    this.getFieldId = function (){
+        return this.fieldId;
+    };
+    this.move = function (field){
+        this.fieldId = field;
+    };
+}
 
 //#############################################################################################################
 //############ GLOBALS
@@ -40,16 +53,23 @@ function Terrain (){
 var _fieldCnt = 50;
 
 //#########################################################
-//debugMode - change tshi to false in production stage!!
+//debugMode - change this to false in production stage!!
 var _debugMode = true;
 
 var _terrainTypes = Array(
         "grass1", "grass2", "grass3", "grass4", "grass5", 
-        "rock1", "rock2", "rock3", "rock4", "rock5"
+        "rock1", "rock2", "rock3", "rock4", "rock5",
+        "rock6", "rock7", "rock8", "rock9", "rock10"
         );
+var _nationTypes = Array(
+        Array("pl", "usa", "uk"),
+        Array("ger", "jap", "it")
+    );
 var _terrain = new Terrain();
+var _players = Array();
 var _mouseX = 0;
 var _mouseY = 0;
+var _applicationBlocked = false;
 
 //#############################################################################################################
 //############ FUNCTIONS
@@ -60,9 +80,27 @@ function init(){
     if( _debugMode )
         $(".debug-mode").show();                // on debug mode on show info box
     buildTerrain();                             // building a random terrain
-    setInterval(function(){autoScroll()}, 10);  // starting scrolling map - based on mouse position 
+    setInterval(function(){autoScroll()}, 5);  // starting scrolling map - based on mouse position 
     $( 'body' ).css("overflow", "hidden");      // makeing scrollbars invisible
-}
+
+    //creating a players
+    //SAMPLE PLAYERS
+    var player1 = new Player(204, "pl");
+    _players.push(player1);
+    var player2 = new Player(1003, "usa");
+    _players.push(player2);
+    var player3 = new Player(143, "uk");
+    _players.push(player3);
+    var player4 = new Player(708, "jap");
+    _players.push(player4);
+    var player5 = new Player(1877, "ger");
+    _players.push(player5);
+    var player6 = new Player(1503, "it");
+    _players.push(player6);
+
+
+    updateBoard();
+};
 
 function buildTerrain(){
     for(var i = 0; i < _fieldCnt; i++){
@@ -72,7 +110,7 @@ function buildTerrain(){
         }
         
     }
-}
+};
 
 function randomTerrain(){
     var countTerrainTypes = _terrainTypes.length;
@@ -100,20 +138,20 @@ function autoScroll(){
 
         $( "#debug-info" ).html( "M.x: " + x + "% <br /> M.y: " + y + "%");
         
-        var changeX = x / 5;
-        var changeY = y / 10
-        if(x > 70){
+        var changeX = x / 2;
+        var changeY = y / 2;
+        if(x > 90){
             $( window ).scrollLeft($( window ).scrollLeft() + changeX);
         }
-        if(y > 70){
+        if(y > 90){
             $( window ).scrollTop($( window ).scrollTop() + changeY);
         }
-        changeX = 15 - changeX;
-        changeY = 10 - changeY;
-        if(x < 30){
+        changeX = 50 - changeX;
+        changeY = 50 - changeY;
+        if(x < 10){
             $( window ).scrollLeft($( window ).scrollLeft() - changeX);
         }
-        if(y < 30){
+        if(y < 10){
             $( window ).scrollTop($( window ).scrollTop() - changeY);
         }
 
@@ -121,6 +159,39 @@ function autoScroll(){
         //$( "#debug-info" ).append( "<br /> W.scrollTop: " + _wScrollTop + " <br /> W.scrollLeft: " + _wScrollLeft );
     
 };
+
+function updateBoard(){
+    $('#processing').modal('show');
+    while(waitForUnblock());
+    _applicationBlocked = true;
+    $("#game").text('');
+        for(var i = 0; i < (_fieldCnt * _fieldCnt); i++){
+            var field = '<div class="field ' + _terrain.get(i).terrainType + '" id="' + i + '"></div>';
+            $('#game').append(field);
+        }
+        $.each(_players, function(){
+            var id = this.getFieldId();
+            var nation = this.getNation();
+            var player = '<div class="player ' + nation + '"></div>';
+            $("#"+id).append(player);
+        });
+    $('#processing').modal('hide');
+    _applicationBlocked = false;
+    fixModal();
+};
+
+
+//simply waiting for start
+function waitForUnblock(){
+    if(_applicationBlocked){
+        setTimeout(function(){waitForUnblock();}, 10);
+        return true;
+    }
+    return false;
+}
+function fixModal(){
+    $(".modal-backdrop").hide();
+}
 //#############################################################################################################
 //############ MAIN
 //#############################################################################################################
@@ -128,15 +199,8 @@ function autoScroll(){
 $(document).ready(function(){
     init();                         // start all required starting functions
 
-    // DISPLAING BUILDED TERRAIN
-    $('#processing').modal('show');
-    for(var i = 0; i < (_fieldCnt * _fieldCnt); i++){
-        var field = '<div class="field ' + _terrain.get(i).terrainType + '" id="' + i + '"></div>';
-        $('#game').append(field);
-    }
-    $('#processing').modal('hide');
-    
-    
+    _players[5].move(1523);
+    updateBoard();
     // MAKEING FIELD CLICKABLE
     $('.field').click(function(){
        var id = $(this).attr('id');

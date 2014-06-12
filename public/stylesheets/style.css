@@ -238,7 +238,10 @@ a:hover {
   margin: 0 !important; }
 
 #game {
-  width: 1450px; }
+  width: 1450px;
+  position: absolute;
+  top: 50px;
+  left: 0px; }
   #game .field {
     width: 29px;
     height: 29px;
@@ -246,7 +249,31 @@ a:hover {
     background: #2a6496;
     border-right: rgba(0, 0, 0, 0.6) 1px solid;
     border-bottom: rgba(0, 0, 0, 0.6) 1px solid; }
-  #game .texture, #game .grass1, #game .grass2, #game .grass3, #game .grass4, #game .grass5, #game .rock1, #game .rock2, #game .rock3, #game .rock4, #game .rock5 {
+    #game .field .player {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      margin: -3px 0px 0px -11px;
+      z-index: 999; }
+    #game .field .pl {
+      background: url("../images/flags/flags_small/pl.png");
+      background-size: 50px; }
+    #game .field .usa {
+      background: url("../images/flags/flags_small/usa.png");
+      background-size: 50px; }
+    #game .field .uk {
+      background: url("../images/flags/flags_small/uk.png");
+      background-size: 50px; }
+    #game .field .ger {
+      background: url("../images/flags/flags_small/ger.png");
+      background-size: 50px; }
+    #game .field .jap {
+      background: url("../images/flags/flags_small/jap.png");
+      background-size: 50px; }
+    #game .field .it {
+      background: url("../images/flags/flags_small/it.png");
+      background-size: 50px; }
+  #game .texture, #game .grass1, #game .grass2, #game .grass3, #game .grass4, #game .grass5, #game .rock1, #game .rock2, #game .rock3, #game .rock4, #game .rock5, #game .rock6, #game .rock7, #game .rock8, #game .rock9, #game .rock10 {
     background: url("../images/terrain_sprite.png");
     background-size: 150px; }
   #game .grass2 {
@@ -265,6 +292,16 @@ a:hover {
     background-position: -90px -30px; }
   #game .rock5 {
     background-position: -120px -30px; }
+  #game .rock6 {
+    background-position: 0 -60px; }
+  #game .rock7 {
+    background-position: -30px -60px; }
+  #game .rock8 {
+    background-position: -60px -60px; }
+  #game .rock9 {
+    background-position: -90px -60px; }
+  #game .rock10 {
+    background-position: -120px -60px; }
 
 .debug-mode {
   display: none; }
